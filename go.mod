@@ -1,4 +1,4 @@
-module github.com/Yessentemir/stats
+module github.com/Yessentemir/stats/v2
 
 go 1.17
 

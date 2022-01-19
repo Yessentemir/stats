@@ -1,7 +1,7 @@
 package stats
 
 import (
-	"github.com/Yessentemir/bank/pkg/types"
+	"github.com/Yessentemir/bank/v2/pkg/types"
 )
 
 // Avg рассчитывет среднюю сумму платежа.
@@ -12,6 +12,10 @@ func Avg(payments []types.Payment) types.Money {
 	for _, payments := range payments {
 
 		if payments.Amount < 0 {
+			continue
+		}
+
+		if payments.Status == "FAIL" {
 			continue
 		}
 
@@ -32,6 +36,10 @@ func TotalInCategory(payments []types.Payment, category types.Category) types.Mo
 		}
 
 		if category != payments.Category {
+			continue
+		}
+
+		if payments.Status == "FAIL" {
 			continue
 		}
 		sum += payments.Amount

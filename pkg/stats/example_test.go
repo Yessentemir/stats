@@ -3,7 +3,7 @@ package stats
 import (
 	"fmt"
 
-	"github.com/Yessentemir/bank/pkg/types"
+	"github.com/Yessentemir/bank/v2/pkg/types"
 )
 
 func ExampleAvg() {
@@ -12,16 +12,19 @@ func ExampleAvg() {
 			ID:       1111,
 			Category: "auto",
 			Amount:   10_000,
+			Status:   "OK",
 		},
 		{
 			ID:       2222,
 			Category: "auto",
 			Amount:   20_000,
+			Status:   "OK",
 		},
 		{
 			ID:       3333,
 			Category: "auto",
 			Amount:   30_000,
+			Status:   "OK",
 		},
 	}
 
@@ -36,16 +39,19 @@ func ExampleTotalInCategory() {
 			ID:       1111,
 			Category: "auto",
 			Amount:   10_000,
+			Status:   "OK",
 		},
 		{
 			ID:       2222,
 			Category: "technology",
 			Amount:   20_000,
+			Status:   "OK",
 		},
 		{
 			ID:       3333,
 			Category: "auto",
 			Amount:   30_000,
+			Status:   "OK",
 		},
 	}
 

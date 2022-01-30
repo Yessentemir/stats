@@ -47,3 +47,42 @@ func TotalInCategory(payments []types.Payment, category types.Category) types.Mo
 	}
 	return sum
 }
+
+// TotalinCategory2 находит сумму покупок в определенной категории.
+func TotalInCategory2(payments []types.Payment, category types.Category) types.Money {
+	sum := types.Money(0)
+
+	for _, payment := range payments {
+
+		if payment.Category != category {
+			continue
+		}
+
+		sum += payment.Amount
+
+	}
+	return sum
+}
+
+// QuantityOfCategoriesInPayment считает количество категорий в платеже.
+func QuantityOfCategoriesInPayment(payments []types.Payment, category types.Category) types.Money {
+	sum := types.Money(0)
+
+	for _, payment := range payments {
+		if payment.Category == category {
+			sum++
+		}
+
+	}
+	return sum
+}
+
+// CategoriesAvg cчитает среднюю сумму платежа по каждой категории
+func CategoriesAvg(payments []types.Payment) map[types.Category]types.Money {
+	categories := map[types.Category]types.Money{}
+	for _, payment := range payments {
+		categories[payment.Category] = TotalInCategory2(payments, payment.Category) / QuantityOfCategoriesInPayment(payments, payment.Category)
+	}
+
+	return categories
+}
